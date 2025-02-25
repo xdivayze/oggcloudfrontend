@@ -19,7 +19,7 @@ export default function TextParts() {
 
       <div className="pt-1 flex flex-col max-w-fit">
         <p className="">
-          <span className="text-indigo-ogg underline">
+          <span className="text-indigo-ogg underline hover:scale-110 hover:text-blue-700 transition-all duration-200">
             {" "}
             <Link to={"/register"}>Join now</Link>{" "}
           </span>
