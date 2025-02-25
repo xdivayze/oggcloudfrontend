@@ -14,17 +14,19 @@ export default function Navbar({ collapse }: { collapse: boolean }) {
 
     if (collapse) {
       if (collapsed) {
-        setCollapsed(false);
-        setTextStatement("");
+        
+        setTextStatement("text-2xl");
         setTransitionStates(
-          "transition-all duration-300 ease-in-out  scale-100 min-h-14 "
+          "transition-all duration-500 ease-in-out  min-h-14 "
         );
+        setCollapsed(false);
       } else {
-        setCollapsed(true);
+        
         setTextStatement("text-[0px]");
         setTransitionStates(
-          "transition-all duration-300 ease-in-out  scale-95 min-h-1 max-h-4 "
+          "transition-all duration-500 ease-in-out  min-h-1 max-h-4 "
         );
+        setCollapsed(true);
       }
     }
   };
