@@ -1,4 +1,5 @@
 import Navbar from "../../Navbar/Navbar";
+import SpotifyPart from "./Components/SpotifyPart";
 import TextParts from "./Components/TextPart";
 
 export default function Home() {
@@ -9,11 +10,13 @@ export default function Home() {
       </div>
 
       <div className=" min-h-4/5 pt-14 ">
-        <div className="px-21 w-full flex flex-row space-x-16">
+        <div className="px-35 w-full flex flex-row ">
           <div className="w-1/2 ">
             <TextParts />
           </div>
-          <div className="w-1/2 ">a</div>
+          <div className="w-1/2 ">
+            <SpotifyPart />
+          </div>
         </div>
       </div>
     </div>

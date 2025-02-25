@@ -17,7 +17,7 @@ export default function ExpandedNavbar({
         to="/about"
         textSize={textSize}
         color="bg-blue-ogg"
-        margin="ml-7"
+        margin="ml-18"
         z="z-5"
       />
       <CommonFrame
