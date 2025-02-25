@@ -1,21 +1,49 @@
-import CommonFrame from "./Components/CommonFrame";
+import { useEffect, useState } from "react";
+import ExpandedNavbar from "./Components/ExpandedNavbar";
 
-export default function Navbar() {
+export default function Navbar({ collapse }: { collapse: boolean }) {
+  const [collapsed, setCollapsed] = useState(false);
+  const [transitionStates, setTransitionStates] = useState("min-h-14");
+  const [textStatement, setTextStatement] = useState("");
+
+  useEffect(() => {
+    handleCollapse()
+
+  }, [])
+  var handleCollapse = () => {
+
+    if (collapse) {
+      if (collapsed) {
+        setCollapsed(false);
+        setTextStatement("");
+        setTransitionStates(
+          "transition-all duration-300 ease-in-out  scale-100 min-h-14 "
+        );
+      } else {
+        setCollapsed(true);
+        setTextStatement("text-[0px]");
+        setTransitionStates(
+          "transition-all duration-300 ease-in-out  scale-95 min-h-1 max-h-4 "
+        );
+      }
+    }
+  };
+
+  var rendered = (
+    <ExpandedNavbar
+      height=""
+      showText={textStatement}
+      additional={`${transitionStates}`}
+    />
+  );
+
   return (
-    <div className="w-full justify-center flex ">
-      <nav className="w-5/6 flex flex-row h-14 relative ">
-        <CommonFrame
-          text="OGGLabs Interactive Research Experience"
-          to="/"
-          color="bg-blue-ogg"
-          margin=""
-          z="z-5"
-        />
-        <CommonFrame text="Home" to="/" color="bg-green-ogg" margin="-ml-7 -pl-7" z="z-4" />
-        <CommonFrame text="Home" to="/" color="bg-green-ogg" margin="-ml-7 -pl-7" z="z-4" />
-        <CommonFrame text="Home" to="/" color="bg-green-ogg" margin="-ml-7 -pl-7" z="z-4" />
-        <CommonFrame text="Home" to="/" color="bg-green-ogg" margin="-ml-7 -pl-7" z="z-4" />
-      </nav>
+    <div
+      className="w-13/14 flex ml-7 min-h-14 "
+      onMouseEnter={handleCollapse}
+      onMouseLeave={handleCollapse}
+    >
+      {rendered}
     </div>
   );
 }

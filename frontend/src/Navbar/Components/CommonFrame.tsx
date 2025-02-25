@@ -5,18 +5,20 @@ export default function CommonFrame({
   color,
   to,
   margin,
-  z
+  z,
+  textSize,
 }: {
   text: string;
   color: string;
   to: string;
-  margin: string
-  z:string
+  margin: string;
+  z: string;
+  textSize: string;
 }) {
-  var classnames = `w-1/5 min-h-full ${color} rounded-2xl ${margin} items-center flex justify-center ${z} text-xl text-center text-yellow-ogg`;
+  var classnames = ` w-1/5 min-h-full ${color} rounded-2xl ${margin} items-center flex justify-center ${z} text-xl text-center text-yellow-ogg font-robotoSlab ${textSize}`;
   return (
     <div className={classnames}>
-      <Link  to={to}>{text}</Link>
+      <Link to={to}>{text}</Link>
     </div>
   );
 }
