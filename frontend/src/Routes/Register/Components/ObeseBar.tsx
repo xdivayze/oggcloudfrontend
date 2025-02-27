@@ -17,6 +17,12 @@ export default function ObeseBar({
 }) {
   return (
     <div
+    onKeyDown={(e) => {
+      if (e.key === "Enter") {
+        console.log("e")
+        e.preventDefault()
+      }
+    }}
       onClick={onClick}
       suppressContentEditableWarning={true}
       ref={refPassed}

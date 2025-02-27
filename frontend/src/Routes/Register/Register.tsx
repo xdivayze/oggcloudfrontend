@@ -1,6 +1,7 @@
 import { useCallback, useRef } from "react";
 import Navbar from "../../Navbar/Navbar";
 import ObeseBar from "./Components/ObeseBar";
+import { useParams } from "react-router-dom";
 
 export default function Register() {
   var emailRef = useRef("");
@@ -9,11 +10,13 @@ export default function Register() {
   var securityTextRef = useRef("");
   var submitRef = useRef("");
 
+  const { refcode } = useParams()
+
   var onSubmitClick = useCallback(() => {
     console.log("hi man");
 
     var email = emailRef.current
-    console.log(`${ email != null ? email.innerHTML : "err"}`); //TODO continue from here adding fetch requests 
+    console.log(`${email != null ? email.innerText : "err"}`); //TODO continue from here adding fetch requests 
 
   }, []);
   return (
@@ -91,4 +94,8 @@ export default function Register() {
       </div>
     </div>
   );
+}
+
+async function checkRefCode(referral: string): Promise<boolean> { //TODO
+  return true
 }
